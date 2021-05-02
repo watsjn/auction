@@ -1,5 +1,6 @@
 ---
 -   name: Start docker on boot
+    become: yes
     systemd:
       name: docker
       state: started

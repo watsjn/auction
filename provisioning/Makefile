@@ -1,5 +1,8 @@
 site:
-	ansible-playbook -i hosts.yml site.yml
+	ansible-playbook -i hosts.yml site.yml -vv
+
+upgrade:
+	ansible-playbook -i hosts.yml upgrade.yml
 
 renew-certificates:
 	ansible-playbook -i hosts.yml renew-certificates.yml

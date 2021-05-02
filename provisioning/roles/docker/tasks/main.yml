@@ -1,5 +1,6 @@
 ---
 -   name: Install dependencies
+    become: yes
     apt:
       name:
         - apt-transport-https
@@ -10,6 +11,7 @@
       update_cache: yes
 
 -   name: Add GPG key
+    become: yes
     apt_key:
       url: https://download.docker.com/linux/debian/gpg
       state: present
@@ -20,6 +22,7 @@
       state: present
 
 -   name: Set up the repository
+    become: yes
     apt_repository:
       repo: deb [arch=amd64] https://download.docker.com/linux/debian stretch stable
       state: present
@@ -27,6 +30,7 @@
       update_cache: yes
 
 -   name: Install Docker
+    become: yes
     apt:
       name: docker-ce
       state: present
@@ -34,6 +38,7 @@
     notify: Start docker on boot
 
 -   name: Install Docker Compose
+    become: yes
     get_url:
       url: https://github.com/docker/compose/releases/download/1.29.0/docker-compose-{{ ansible_system }}-{{ ansible_userspace_architecture }}
       dest: /usr/local/bin/docker-compose
@@ -41,6 +46,7 @@
       mode: 'u+x,g+x'
 
 -   name: Set periodic Docker prune
+    become: yes
     cron:
       name: docker-prune
       job: 'docker system prune -af --filter "until=$((30*24))h"'
@@ -48,9 +54,11 @@
       hour: '1'
 
 -   name: Remove useless packages
+    become: yes
     apt:
       autoclean: yes
 
 -   name: Remove useless dependencies
+    become: yes
     apt:
       autoremove: yes

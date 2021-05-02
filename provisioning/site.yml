@@ -1,7 +1,7 @@
 ---
 -   name: Provision Site
     hosts: site
-    remote_user: admin
+    remote_user: root
     roles:
       - docker
       - certbot
