@@ -1,0 +1,4 @@
+certbot_email: aliaksei.shumovich@gmail.com
+certbot_hosts:
+  - demo-auction.ec2-18-195-19-228.eu-central-1.compute.amazonaws.com
+  - api.demo-auction.ec2-18-195-19-228.eu-central-1.compute.amazonaws.com
