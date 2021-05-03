@@ -9,11 +9,10 @@ use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\App;
 use Slim\Psr7\Factory\ServerRequestFactory;
+use App\Http\Action\HomeAction;
 
 /**
- * Class JsonResponseTest
- * @package Test\Unit\Http
- * @covers \App\Http\Action\HomeAction
+ * @covers HomeAction
  */
 class HomeTest extends TestCase
 {
